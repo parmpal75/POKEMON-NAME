@@ -41,11 +41,37 @@ class Pokemon
         return (rand(1,100));
     }
 }
-$Pokeballs = array();
-for($counter=1; $counter<6; $counter++){
-    $Pikachu = new Pokemon;
-    $Pikachu->PokemonName=(string)$counter;
-    $Pokeballs[] = $Pikachu;
+$PokemonNames = array('Bulbasaurdagger', 'Ivysaur',
+'Venusaur',
+'Charmanderdagger',
+'Charmeleon',
+'Charizard',
+'Squirtledagger',
+'Wartortle',
+'Blastosie',
+'Caterpie',
+'Metapod',
+'Buttefree',
+'Weedle',
+'Kakuna',
+'Beedrill',
+'Pidgey',
+'Pidgeotto',
+'Pidgeot',
+'Rattata',
+'Raticate',
+'Spearow',
+);
+
+$PokemonTypes= array('Fire','Water','Psychic','Ground','Electric');
+
+$Pokeballs=array();
+for($counter=1; $counter<=20; $counter++){
+$Pikachu= new Pokemon;
+$Pikachu->PokemonName=array_pop($PokemonNames);
+$Pikachu->PokemonTypes[rand(0,sizeof($PokemonTypes)-1)];
+
+$Pokeballs[]=$Pikachu;
 }
 // var_dump($Pokeballs);
 
@@ -56,11 +82,24 @@ for($counter=1; $counter<6; $counter++){
 // Output the contestants and the Winners!!!
 // POKEMON: I CHOOSE YOU!
 
-// Part Two: #todo: Give your Pokemon Names and Types: Create an array of Names
-// use rand to select a Name for each Pokemon
-// make sure to remove that name from the array so it is not issued Twice!!!  
+for($battlesCount=1; $battlesCount<=10; $battlesCount++){
+//randomly pull 2 Pokemon out of the Pokeball: array name is $Pokeballs
 
-// Part Three: #todo: Create a POKEDEX to store the results of BATTLES  
+echo "BATTLE:".$battlesCount;
+$pokemon1 = array_pop($Pokeballs);
+$pokemon2 = array_pop($Pokeballs);
+
+$pokemon1_attackstrength = $pokemon1->doPokemonAttack();
+$pokemon2_attackstrength = $pokemon2->doPokemonAttack();
+
+echo "Pokemon 1 attack Strength:".$pokemon1_attackStrength."\r\n";
+echo "Pokemon 2 attack Strength:".$pokemon2_attackStrength."\r\n";
+
+}
+
+//Part Three: #todo: Create a POKEDEX to store the results of BATTLES
 
 echo "fini";
+
 ?>
+
