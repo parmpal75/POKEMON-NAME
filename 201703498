@@ -1,0 +1,21 @@
+<?php
+
+class Pokemon
+{
+    // Declare  properties
+    public $PokemonName;
+    public $PokemonType;
+    
+    // Method to Attack
+    public function doPokemonAttack(){
+        return (rand(1,100));
+    }
+}
+$Pokeballs = array();
+for($counter=1; $counter<6; $counter++){
+    $Pikachu = new Pokemon;
+    $Pikachu->PokemonName=(string)$counter;
+    $Pokeballs[] = $Pikachu;
+}
+echo "fini";
+?>
